@@ -11,6 +11,8 @@ This project demonstrates how to set up a log processing pipeline using AWS serv
 ### 1. Amazon Kinesis Data Firehose
 - Instructions to create and configure the delivery stream.
 
+Amazon Data Firehose is a fully managed service for delivering real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3)
+
 ### 2. Kinesis Agent
 - Installation and configuration guide.
 
