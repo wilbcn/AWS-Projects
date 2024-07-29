@@ -8,35 +8,16 @@ This project demonstrates how to set up a log processing pipeline using AWS serv
 
 ## Setup and Configuration
 
-### 1. Amazon Kinesis Data Firehose
-- Instructions to create and configure the delivery stream.
+### 1. Step 1: Create an S3 Bucket
+Creating an S3 bucket, our public cloud storage. Steps taken:
+1. I created a new general purpose S3 bucket named "mynew-firehose-bucket".
+2. ACLs were left as disabled and block all public access was left on by default.
+3. Bucket versioning not required for this project.
+4. Default encryption "Server-side encryption with Amazon S3 managed keys (SSE-S3)" and Bucket Key enabled.
+5. Advanced settings: Object lock was kept off.
+6. Create Bucket!
 
-Amazon Data Firehose is a fully managed service for delivering real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3)
-
-### 2. Kinesis Agent
-- Installation and configuration guide.
-
-### 3. Amazon S3
-- Configuration details for log storage.
-
-### 4. AWS Glue
-- Steps to configure the crawler and create the schema.
-
-### 5. Amazon Athena
-- How to set up and run queries.
-
-## Usage Instructions
-- Detailed steps to use the setup and analyze logs.
-
-## Examples
-- Sample queries and expected results.
-
-## Troubleshooting
-- Common issues and solutions.
-
-## Conclusion
-- Summary of the project and key takeaways.
-
-## References
-- Links to AWS documentation and other resources.
+## S3 Overview
+![New S3 Bucket](https://github.com/wilbcn/pngs/blob/main/screenshot_of_s3bucket.png)
+   
 
