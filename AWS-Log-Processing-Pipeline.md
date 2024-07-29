@@ -1,7 +1,7 @@
 # AWS Log Processing Pipeline
 
 ## Introduction
-The goal of this project is to create a data pipeline to ingest, process, and store log data, using AWS services including Amazon Kinesis Data Firehose, Amazon S3, AWS Glue, and Amazon Athena. This is a basic project with the aim to get hands on experience usomg some of AWS services.
+The goal of this project is to create a data pipeline to ingest, process, and store log data, using AWS services including Amazon Kinesis Data Firehose, Amazon S3, AWS Glue, and Amazon Athena. This is a basic project aimed at gaining hands-on experience with these AWS services."
 
 ## Architecture Diagram
 ![Architecture Diagram](https://github.com/wilbcn/pngs/blob/main/architecture-diagram.png)
@@ -9,10 +9,10 @@ The goal of this project is to create a data pipeline to ingest, process, and st
 ## Setup and Configuration
 
 ### 1. Create an S3 Bucket
-Creating an S3 bucket, our public cloud storage. Steps taken:
+Creating an S3 bucket for our public cloud storage. Steps taken:
 1. I navigated to S3 on AWS and created a new general purpose S3 bucket named "mynew-firehose-bucket".
 2. ACLs were left as disabled and block all public access was left on by default.
-3. Bucket versioning not required for this project.
+3. Bucket versioning was not required for this project.
 4. Default encryption "Server-side encryption with Amazon S3 managed keys (SSE-S3)" and Bucket Key enabled.
 5. Advanced settings: Object lock was kept off.
 6. Create Bucket!
@@ -39,7 +39,7 @@ Creating a new EC2 instance, which we can later install the kinesis agent and ge
 2. Here I appropriately named our new EC2 instance "Firehose-Test-EC2" and selected Amazon Linux OS.
 3. Free Tier AMI and instance type was selected.
 4. For this project I created a new key pair and saved this to a new folder for later use. Key type: RSA (.pem)
-5. For network settings, I created a new security group, allowing SSH traffic for my IP only. This is good security practise and is ok for this project.
+5. For network settings, I created a new security group, allowing SSH traffic for my IP only. This is good security practice and is ok for this project.
 6. Storage options was left at default (free tier) and advanced settings left alone.
 7. Launch EC2 Instance! This may take some time after initialising.
 
@@ -65,7 +65,7 @@ Now its time to install and configure Kinesis Agent on our newly created EC2 ins
 2. In order to connect to our EC2 instance using our private key, I will ammend the permissions so that only the owner can read it. Private keys are sensitive and should be protected.
 ![Modifying our key](https://github.com/wilbcn/pngs/blob/main/screenshot_of_chmod.png)
 3. With our key modified, I then accessed our EC2 instance via ssh and the ec2-user user, using our instances public ip address found in our instance overview and details tab.
-4. I then ran various lines of code, checking for any updates, installing the kinesis agent, and configuring the kinesis agent.json file so that it properly collects and sends data to our EC2 instance. To hide sensitive information, some screen shots are from notepad.
+4. I then ran various lines of code, checking for any updates, installing the kinesis agent, and configuring the kinesis agent.json file so that it properly collects and sends data to our EC2 instance. To hide sensitive information, some screenshots are from notepad.
 5. ![Installing and configuring Kinesis, editing agent.json](https://github.com/wilbcn/pngs/blob/main/screenshot_install_json.png)
    ![Restarting kinesis after changes](https://github.com/wilbcn/pngs/blob/main/screenshot_restart_kinesis.png)
    ![Sending some test data to S3](https://github.com/wilbcn/pngs/blob/main/screenshot_filesuccess.png)
