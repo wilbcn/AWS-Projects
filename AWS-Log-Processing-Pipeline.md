@@ -34,7 +34,7 @@ Creating a Kinesis firehose delivery stream to send data to our S3 Bucket.
 ![New firehose stream](https://github.com/wilbcn/pngs/blob/main/screenshot_of_firehosestream.png)
 
 ### 3. Set up and launch a new EC2 Instance
-Creating a new EC2 instance 
+Creating a new EC2 instance, which we can later install the kinesis agent and generate test data.
 1. I navigated to EC2, instances, and clicked launch instances
 2. Here I appropriately named our new EC2 instance "Firehose-Test-EC2" and selected Amazon Linux OS.
 3. Free Tier AMI and instance type was selected.
@@ -46,6 +46,20 @@ Creating a new EC2 instance
 ## EC2 Instance Overview
 ![New EC2 Instance](https://github.com/wilbcn/pngs/blob/main/screenshot_of_ec2.png)
 
+### 4. IAM Roles management
+Creating a new role for our EC2 instance to give Kinesis and S3 full access.
+1. I navigated to S3, roles, and create role.
+2. Entity type is AWS Service and use case EC2.
+3. Here I attached the following policies:
+![IAM Policies](https://github.com/wilbcn/pngs/blob/main/screenshot_of_IAMpolicies.png)
+4. Then I appropriately named our new role "myec2-kinesis-role" and reviewed before hitting create.
+5. I then went and attached our new role to our EC2 Instance. EC2 -> Instances -> Our new instance "Firehose-Test-EC2" -> Actions,Security,ModifyIAMrole.
+6. From the dropdown menu I selected our new role "myec2-kinesis-role" and clicked update IAM role.
+
+## EC2 Instance Overview with IAM role
+![EC2 & IAM](https://github.com/wilbcn/pngs/blob/main/screenshot_of_ec2_withIAM.png)
+
+### 5: Install and Configure Kinesis Agent on our EC2 instance
 
 
 
