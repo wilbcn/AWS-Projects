@@ -71,9 +71,26 @@ Now its time to install and configure Kinesis Agent on our newly created EC2 ins
    ![Sending some test data to S3](https://github.com/wilbcn/pngs/blob/main/screenshot_filesuccess.png)
    ![Checking S3](https://github.com/wilbcn/pngs/blob/main/screenshot_s3_afterfilesend.png)
 6. As you can see in the screenshot of our S3 Bucket, we can see our test data
-7. Later on once we have configured AWS Glue and Athena, we can experiment with more complex data data like CSV or JSON.
+7. Later on once we have configured AWS Glue and Athena, we could potentially experiment with more complex data data like CSV or JSON.
 
-### If you're reading this, this project is unfinished!
+### 6: AWS Glue
+Create a glue crawler!
+1. Navigate to AWS Glue, Expand on data catalogue, and click Crawlers.
+2. Here I clicked create new crawler and named it appropriately "my-log-crawler".
+3. Add a data source: Attach our S3 bucket made for this project s3://mynew-firehose-bucket
+4. I created another IAM Role for our crawler, so that it can read from the S3 bucket and write to the Glue Data catalogue.
+   ![Crawler IAM Role](https://github.com/wilbcn/pngs/blob/main/screenshot_glue_IAM.png)
+5. Output configuration: I have created a new database called "logsdatabase" and attached it to the crawler.
+6. Create Crawler and run the crawler, checking for successful status.
+   ![Crawler Success](https://github.com/wilbcn/pngs/blob/main/screenshot_of_Crawler_success.png)
+
+### 7: AWS Athena
+Athena incurs costs, so for this project I will not be running any queries. However I provided a small overview below of how we could use this AWS Service.
+As this is our first query, we must specify where the result will end up
+ ![New Table](https://github.com/wilbcn/pngs/blob/main/screenshot_athena.png)
+
+Some uses of Athena in relation to cybersecurity would be to analyse files such as application logs, server logs, or access logs, to help us identify unusual patterns or anomalies that could indicate a security breach. For example, looking for repeated failed login attempts or access from unusual IP addresses.
+
 
 
 
