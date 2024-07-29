@@ -1,7 +1,7 @@
 # AWS Log Processing Pipeline
 
 ## Introduction
-This project demonstrates how to set up a log processing pipeline using AWS services including Amazon Kinesis Data Firehose, Amazon S3, AWS Glue, and Amazon Athena.
+The goal of this project is to create a data pipeline to ingest, process, and store log data, using AWS services including Amazon Kinesis Data Firehose, Amazon S3, AWS Glue, and Amazon Athena. This is a basic project with the aim to get hands on experience usomg some of AWS services.
 
 ## Architecture Diagram
 ![Architecture Diagram](https://github.com/wilbcn/pngs/blob/main/architecture-diagram.png)
@@ -70,6 +70,10 @@ Now its time to install and configure Kinesis Agent on our newly created EC2 ins
    ![Restarting kinesis after changes](https://github.com/wilbcn/pngs/blob/main/screenshot_restart_kinesis.png)
    ![Sending some test data to S3](https://github.com/wilbcn/pngs/blob/main/screenshot_filesuccess.png)
    ![Checking S3](https://github.com/wilbcn/pngs/blob/main/screenshot_s3_afterfilesend.png)
+6. As you can see in the screenshot of our S3 Bucket, we can see our test data
+7. Later on once we have configured AWS Glue and Athena, we can experiment with more complex data data like CSV or JSON.
+
+### If you're reading this, this project is unfinished!
 
 
 
