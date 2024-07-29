@@ -65,8 +65,8 @@ Now its time to install and configure Kinesis Agent on our newly created EC2 ins
 2. In order to connect to our EC2 instance using our private key, I will ammend the permissions so that only the owner can read it. Private keys are sensitive and should be protected.
 ![Modifying our key](https://github.com/wilbcn/pngs/blob/main/screenshot_of_chmod.png)
 3. With our key modified, I then accessed our EC2 instance via ssh and the ec2-user user, using our instances public ip address found in our instance overview and details tab.
-4. I then ran various lines of code, checking for any updates, installing the kinesis agent, and configuring the kinesis agent so that it properly collects and sends data to our EC2 instance.
-5. ![Installing and configuring Kinesis]()
+4. I then ran various lines of code, checking for any updates, installing the kinesis agent, and configuring the kinesis agent.json file so that it properly collects and sends data to our EC2 instance.
+5. ![Installing and configuring Kinesis](https://github.com/wilbcn/pngs/blob/main/screenshot_of_install_ec2.png)
 6. 
 
 
