@@ -51,7 +51,7 @@ Creating a new role for our EC2 instance to give Kinesis and S3 full access.
 1. I navigated to S3, roles, and create role.
 2. Entity type is AWS Service and use case EC2.
 3. Here I attached the following policies:
-![IAM Policies](https://github.com/wilbcn/pngs/blob/main/screenshot_of_IAMpolicies.png)
+![IAM Policies](https://github.com/wilbcn/pngs/blob/main/screenshot_of_iampolicies.png)
 4. Then I appropriately named our new role "myec2-kinesis-role" and reviewed before hitting create.
 5. I then went and attached our new role to our EC2 Instance. EC2 -> Instances -> Our new instance "Firehose-Test-EC2" -> Actions,Security,ModifyIAMrole.
 6. From the dropdown menu I selected our new role "myec2-kinesis-role" and clicked update IAM role.
@@ -66,9 +66,10 @@ Now its time to install and configure Kinesis Agent on our newly created EC2 ins
 ![Modifying our key](https://github.com/wilbcn/pngs/blob/main/screenshot_of_chmod.png)
 3. With our key modified, I then accessed our EC2 instance via ssh and the ec2-user user, using our instances public ip address found in our instance overview and details tab.
 4. I then ran various lines of code, checking for any updates, installing the kinesis agent, and configuring the kinesis agent.json file so that it properly collects and sends data to our EC2 instance. To hide sensitive information, some screen shots are from notepad.
-5. ![Installing and configuring Kinesis]()
-6. I then restarting the agent to pick up any changes, and vertified it had restarted correctly.
-7. 
+5. ![Installing and configuring Kinesis, editing agent.json](https://github.com/wilbcn/pngs/blob/main/screenshot_install_json.png)
+   ![Restarting kinesis after changes](https://github.com/wilbcn/pngs/blob/main/screenshot_restart_kinesis.png)
+   ![Sending some test data to S3](https://github.com/wilbcn/pngs/blob/main/screenshot_filesuccess.png)
+   ![Checking S3](https://github.com/wilbcn/pngs/blob/main/screenshot_s3_afterfilesend.png)
 
 
 
