@@ -1,7 +1,7 @@
 # AWS Log Processing Pipeline
 
 ## Introduction
-The goal of this project is to create a data pipeline to ingest, process, and store log data, using AWS services including Amazon Kinesis Data Firehose, Amazon S3, Amazon EC2, AWS Glue, and Amazon Athena. This is a basic project aimed at gaining hands-on experience with these AWS services."
+The goal of this project is to create a data pipeline to ingest, process, and store log data, using AWS services including Amazon Kinesis Data Firehose, Amazon S3, Amazon EC2, AWS Glue, and Amazon Athena. This is a basic project aimed at gaining hands-on experience with a variety of AWS services.
 
 ## Architecture Diagram
 ![Architecture Diagram](https://github.com/wilbcn/pngs/blob/main/architecture-diagram.png)
