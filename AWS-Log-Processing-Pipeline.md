@@ -83,6 +83,7 @@ Create a glue crawler!
 5. Output configuration: I have created a new database called "logsdatabase" and attached it to the crawler.
 6. Create Crawler and run the crawler, checking for successful status.
    ![Crawler Success](https://github.com/wilbcn/pngs/blob/main/screenshot_of_Crawler_success.png)
+7. AWS Glue also incurs costs, so I removed this crawler afterwards.
 
 ### 7: AWS Athena
 Athena incurs costs, so for this project I will not be running any queries. However I provided a small overview below of how we could use this AWS Service.
