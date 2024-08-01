@@ -55,7 +55,7 @@ Steps Taken:
 6. Free Tier storage was applied
 7. Instance was launched
 8. In order to connect to our instance, there is a few more steps I must take. I navigated back to VPC and internet gateways, and created a new internet gateway and attached it to our marketing VPC. 
-![Adding lgw to our VPC for marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_igw_marketing.png)
+![Adding lgw to our VPC for marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_igw_marketing1.png)
 9. I then added this igw into our route table for our Marketing EC2 instance.
 ![Route table igw](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_marketing_routetable_igw.png)
 10. I tried a quick ping from our Finance server from Marketing via ssh connect, but as expected this failed.
