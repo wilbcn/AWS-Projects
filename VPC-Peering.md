@@ -62,8 +62,8 @@ Steps Taken:
 ![Pinging Finance from Marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_marketing_ping1.png)
 11. I then repeated these steps for the Developer server. Taking careful steps to add internet gateway access, appropriate inbound rules etc.
 12. The Finance Instance had to be created differently. Auto assign public IP was disabled, as for tighter security we want to access this only via the private IP address. 
-13. Inbound rules were set to allow ssh from the Marketing and Developer servers private IPs only.
-![Inbound rules for Finance](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_inboundrules_finance.png)
+13. Inbound rules were set to allow ssh from the Marketing and Developer servers private IPs only. Additionally, I added ICMP IPv4 for both our marketing and developer addresses so we can ping test later on.
+![Inbound rules for Finance](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/inboundrules_finance.png)
 14. Now I navigated to VPC, Peering connections, and create peering connection.
 15. Local VPC was set to Marketing, and the accepter is Finance VPC.
 ![Marketing -> Finance Peering](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/Marketing2Finance_Peering.png)
@@ -77,4 +77,15 @@ Steps Taken:
 ![Finance Route Table](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/financeroutetablefinal.png)
 
 ### 4. Test the connections
+Now it was time to test the connection from Marketing -> Finance, and Developer -> Finance, by ping.
+![Ping test from Marketing to Finance](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/successfulpingfrommarketing2finance.png)
+As you can see, this was a successful test. I also logged in to Developer via AWS Connect, and the result was also good.
+![Ping test from Developer to Finance](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/dev2financeping.png)
+
+### 5. Conclusion
+
+In conclusion, this was a basic project aimed at exploring VPCs and peering connections. This project helped me to better understand subnets, route tables, VPCs, and in general network security rules on AWS. 
+
+In relation to security, keeping each department’s resources (Marketing, Finance, Developer) in separate VPCs provides strong isolation, helping to minimise the risk of cross-departmental data access and potential security breaches.  
+
 
