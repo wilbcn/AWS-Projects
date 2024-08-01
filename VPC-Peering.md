@@ -40,7 +40,7 @@ Steps taken:
 ![Overview of the subnets](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_3subnets.png)
 4. Now we have a subnet for each department.
 
-### 3. Launch EC2 Instances
+### 3. Launch EC2 Instances & Create VPC
 Create 3 seperate EC2 Instances. One for each department: Marketing, Finance, Developer.
 Finance instance should only be accessible via private IP address, limiting exposure.
 Marketing/Developer instances will require ssh set to allowed. 
@@ -76,23 +76,5 @@ Steps Taken:
 20. Now I must also edit the route tables on the Finance Server. Here I added the CIDR block for both Marketing and Finance into the route table for Finance, and selected the relevant PCX
 ![Finance Route Table](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/financeroutetablefinal.png)
 
-### 4. Create VPC Peering Connections
+### 4. Test the connections
 
-1. **Marketing VPC <-> Finance VPC:**
-   - Go to the **VPC Peering Connections** section.
-   - Create a new peering connection between Marketing and Finance VPCs.
-2. **Developer VPC <-> Finance VPC:**
-   - Create another peering connection between Developer and Finance VPCs.
-3. **Ensure No Peering Connection:**
-   - Confirm that there is no peering connection between Marketing and Developer VPCs.
-
-### 5. Update Route Tables
-
-1. **Marketing VPC Route Table:**
-   - Add a route to the Finance VPC CIDR block (`10.1.0.0/16`) via the peering connection with Finance.
-2. **Finance VPC Route Table:**
-   - Add routes to:
-     - Marketing VPC CIDR block (`10.0.0.0/16`) via the peering connection with Marketing.
-     - Developer VPC CIDR block (`10.2.0.0/16`) via the peering connection with Developer.
-3. **Developer VPC Route Table:**
-   - Add a route to the Finance VPC
