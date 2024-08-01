@@ -62,10 +62,19 @@ Steps Taken:
 ![Pinging Finance from Marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_marketing_ping1.png)
 11. I then repeated these steps for the Developer server. Taking careful steps to add internet gateway access, appropriate inbound rules etc.
 12. The Finance Instance had to be created differently. Auto assign public IP was disabled, as for tighter security we want to access this only via the private IP address. 
-13. Inbound rules were set to allow ssh from the Marketing and Developer servers private IPs.
+13. Inbound rules were set to allow ssh from the Marketing and Developer servers private IPs only.
 ![Inbound rules for Finance](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_inboundrules_finance.png)
-
-
+14. Now I navigated to VPC, Peering connections, and create peering connection.
+15. Local VPC was set to Marketing, and the accepter is Finance VPC.
+![Marketing -> Finance Peering](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/Marketing2Finance_Peering.png)
+16. Reviewing the status, which is pending acceptance. I clicked on Actions and accept request. The status was then updated to Active.
+![Accepting the Peering Request](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/Market2finance_peering_complete.png)
+17. I repeated this step for Developer and Finance.
+18. Next step was to add these Peering connections in the Route tables for both Marketing and Finance. The destination will be the private IP of our Finance Server. PCX was the relevant/created VPC for that server Marketing/Developer.
+![Route table with Peering for Marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/MarketingRouteTableFinal.png)
+19. I also did the same for Developer server.
+20. Now I must also edit the route tables on the Finance Server. Here I added the CIDR block for both Marketing and Finance into the route table for Finance, and selected the relevant PCX
+![Finance Route Table](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/financeroutetablefinal.png)
 
 ### 4. Create VPC Peering Connections
 
