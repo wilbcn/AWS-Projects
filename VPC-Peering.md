@@ -18,11 +18,12 @@ This screenshot was taken from AWS Simulated Learning. I then recreated what I l
 ## Steps to Implement
 
 ### 1. Create VPCs
-Create 3 VPCs for each department: Marketing, Finance, Developer
+Create 3 VPCs for each department: Marketing, Finance, Developer.
+
 Steps Taken:
-1. Navigate to VPC on AWS, under Virtual Private Cloud drop down menu click Your VPCs
-2. Create new VPC button
-3. Configure the first VPC for Marketing
+1. Navigate to VPC on AWS, under Virtual Private Cloud drop down menu click Your VPCs.
+2. Create new VPC button.
+3. Configure the first VPC for Marketing.
 ![Marketing VPC configuration](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_VPC1.png)
 4. Click create VPC, and review the status: Available
 ![3 seperate VPCs](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_3vpcs.png)
@@ -30,19 +31,36 @@ Steps Taken:
 
 ### 2. Create Subnets
 Create a subnet for each departments VPC.
+
 Steps taken:
-1. Navigate to VPC on AWS, under Virtual Private Cloud drop down menu click Subnets
-2. Add the first subnet for Marketing department VPC
+1. Navigate to VPC on AWS, under Virtual Private Cloud drop down menu click Subnets.
+2. Add the first subnet for Marketing department VPC.
 ![Marketing VPC subnet](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_subnet1.png)
 3. Repeat these steps for the other two departments, adding each IPv4 CIDR block and matching subnet.
 ![Overview of the subnets](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_3subnets.png)
+4. Now we have a subnet for each department.
 
 ### 3. Launch EC2 Instances
+Create 3 seperate EC2 Instances. One for each department: Marketing, Finance, Developer.
+Finance instance should only be accessible via private IP address, limiting exposure.
+Marketing/Developer instances will require ssh set to allowed. 
 
-1. Launch an EC2 instance in each subnet:
-   - Marketing Instance in Marketing VPC
-   - Finance Instance in Finance VPC
-   - Developer Instance in Developer VPC
+Steps Taken:
+1. Navigate to EC2 on AWS and Launch Instance.
+2. I named our first instance "connecting-vpc/MarketingServer" and selected AMI Amazon Linux.
+3. Instance type was left as free tier and no key pair needed. We will only be using ssh connect via AWS for this project.
+4. Then by expanding on network settings, I added our Marketing VPC and subnet.
+5. Under network settings, I added inbound rules for the region based (eu-north-1) IP address for EC2 Connect. Found here: https://ip-ranges.amazonaws.com/ip-ranges.json
+![Region inbound rule](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_marketinginbound.png)
+6. Free Tier storage was applied
+7. Instance was launched
+8. In order to connect to our instance, there is a few more steps I must take. I navigated back to VPC and internet gateways, and created a new internet gateway and attached it to our marketing VPC. 
+![Adding lgw to our VPC for marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_igw_marketing.png)
+9. I then added this igw into our route table for our Marketing EC2 instance.
+![Route table igw](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_marketing_routetable_igw.png)
+10. I tried a quick ping from our Finance server from Marketing via ssh connect, but as expected this failed.
+![Pinging Finance from Marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_marketing_ping1.png)
+
 
 ### 4. Create VPC Peering Connections
 
