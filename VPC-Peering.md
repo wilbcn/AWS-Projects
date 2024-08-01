@@ -49,7 +49,7 @@ Steps Taken:
 1. Navigate to EC2 on AWS and Launch Instance.
 2. I named our first instance "connecting-vpc/MarketingServer" and selected AMI Amazon Linux.
 3. Instance type was left as free tier and no key pair needed. We will only be using ssh connect via AWS for this project.
-4. Then by expanding on network settings, I added our Marketing VPC and subnet.
+4. Then by expanding on network settings, I added our Marketing VPC and subnet. Auto assign public IP was Enabled.
 5. Under network settings, I added inbound rules for the region based (eu-north-1) IP address for EC2 Connect. Found here: https://ip-ranges.amazonaws.com/ip-ranges.json
 ![Region inbound rule](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_marketinginbound.png)
 6. Free Tier storage was applied
@@ -60,6 +60,11 @@ Steps Taken:
 ![Route table igw](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_marketing_routetable_igw.png)
 10. I tried a quick ping from our Finance server from Marketing via ssh connect, but as expected this failed.
 ![Pinging Finance from Marketing](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_of_marketing_ping1.png)
+11. I then repeated these steps for the Developer server. Taking careful steps to add internet gateway access, appropriate inbound rules etc.
+12. The Finance Instance had to be created differently. Auto assign public IP was disabled, as for tighter security we want to access this only via the private IP address. 
+13. Inbound rules were set to allow ssh from the Marketing and Developer servers private IPs.
+![Inbound rules for Finance](https://github.com/wilbcn/pngs.vpcs.practise/blob/main/screenshot_inboundrules_finance.png)
+
 
 
 ### 4. Create VPC Peering Connections
