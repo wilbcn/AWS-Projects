@@ -17,5 +17,5 @@ Each department will have its own EC2 instance, and users will only have access 
 
 ### 1. Create secure EC2 instances for each department.
 Steps taken with relevant screen shots.
-1. In this section I setup two new EC2 instances. 
+1. In this section I setup two new EC2 instances, using the detault VPC.
 2. 
