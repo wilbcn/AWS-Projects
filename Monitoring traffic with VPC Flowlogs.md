@@ -1,10 +1,17 @@
-# AWS Project with VPC Flow Logs
+# AWS Project - Monitoring traffic with VPC Flowlogs
 
 ## Overview
 
-This project demonstrates the configuration of VPC Flow logs to monitor network traffic, configuring an S3 bucket for log storage, and applying Network ACLs to block specific incoming IP addresses. Then we can review and analyse the logs stored in S3. 
+This project simulates a cloud network scenario using various AWS Services to demonstrate how network traffic can be monitored and captured for analysis, security, and troubleshooting purposes. This project implements various best security practices such as Network ACLs and security groups to create a secure and robust infrastructure.
 
-This is a basic project with the aim of gaining hands on experience using some of AWS services like EC2, S3, VPC, VPC Flow logs, and Network ACLs. 
+# Services or feautures used:
+- EC2
+- S3
+- VPC
+- VPC Flow logs
+- NACLs
+- Internet Gateway
+- Subnets
 
 ## Steps to Implement
 
@@ -12,7 +19,7 @@ This is a basic project with the aim of gaining hands on experience using some o
 Steps taken with relevant screen shots.
 1. Navigated to S3 dashboard and clicked on create new bucket.
 2. Created a new general purpose bucket named 'p-flowlogs-bucket'
-3. The remaining settings with left at default or recommended.
+3. The remaining settings were left at default or recommended.
 4. ![image](https://github.com/user-attachments/assets/ba78e193-1293-4a5b-8fcc-d11f28b2b2c3)
 5. Review the success alert at the top, and also note the AWS region eu-north-1.
 6. As we will later download the flow logs to analyse on our machine, we dont need an IAMrole between S3 and EC2.
@@ -40,7 +47,7 @@ Steps taken with relevant screen shots.
 
 ### 4. Configure NACLs
 Steps taken with relevant screen shots.
-1. NACLs act as a firewall at the subnet level. Controlling both inbound and outbound traffic from our subnets, enhancing security.
+1. NACLs act as a firewall at the subnet level. Controlling both inbound and outbound traffic from our subnets, enhancing security. As NACLs are stateless, we must specificy explicit rules to allow inbound or outbound traffic.
 2. Navigated to VPC dashboard and under security tab, network ACLs, Create network ACL.
 3. Here I created an NACL within our VPC created for this project.
 4. I then went and edited the inbound and outbound rules of our NACL to allow ICMP traffic for our IP address. NACLs have an implicit deny all rule. We must add explicit allow rules. The inbound rule allows us to make the ping request from our local machine to EC2. The outbound rule allows the EC2 to send the ping response back to our local machine.
