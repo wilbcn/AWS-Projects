@@ -56,7 +56,7 @@ Steps taken with relevant screen shots.
 7. ![image](https://github.com/user-attachments/assets/bc3a841c-5ab5-4cbc-8d4f-b0c273ac6a6c)
 8. Each subnet can only be associated with one NACL at a time. So now they are not associated with the default allow all.
 
-### 5. Enable VPC Flow logs and sent to our S3 Bucket.
+### 5. Enable VPC Flow logs and send to our S3 Bucket.
 Steps taken with relevant screen shots.
 1. Navigated to VPC, Your VPCs, and under our vpc 'p-flowlogs-vpc' select the Flow logs tab and Create flow log.
 2. For a comprehensive view we will Filter all traffic, sending the flow log data to our new S3 bucket.
