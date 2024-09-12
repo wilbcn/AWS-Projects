@@ -32,13 +32,13 @@ Steps taken with relevant screen shots.
 ### 3. Launch an EC2 instance in our VPC.
 Steps taken with relevant screen shots.
 1. Navigated to EC2 dashbaord and launched a new instance.
-2. I created a new rsa key pair called flowlogs_project.pem and saved it to my desktop.
+2. I created a new rsa key pair called flowlogs_project.pem and saved it to my desktop. Though we will be pinging the server, we now have a key incase we want to ssh into the machine.
 3. For the network settings, I made a security group to allow ICMP and SSH traffic from my IP address.
 4. I then made sure our EC2 was  in our new VPC, and the subnet for AZ1.
 5. Auto-assign public IP on.
 6. All other settings were left to free tier such as storage and instance type.
 
-### 3. Configure NACLs
+### 4. Configure NACLs
 Steps taken with relevant screen shots.
 1. NACLs act as a firewall at the subnet level. Controlling both inbound and outbound traffic from our subnets, enhancing security.
 2. Navigated to VPC dashboard and under security tab, network ACLs, Create network ACL.
@@ -49,10 +49,18 @@ Steps taken with relevant screen shots.
 7. ![image](https://github.com/user-attachments/assets/bc3a841c-5ab5-4cbc-8d4f-b0c273ac6a6c)
 8. Each subnet can only be associated with one NACL at a time. So now they are not associated with the default allow all.
 
-### 3. Enable VPC Flow logs and sent to our S3 Bucket.
+### 5. Enable VPC Flow logs and sent to our S3 Bucket.
 Steps taken with relevant screen shots.
 1. Navigated to VPC, Your VPCs, and under our vpc 'p-flowlogs-vpc' select the Flow logs tab and Create flow log.
-2. 
+2. For a comprehensive view we will Filter all traffic, sending the flow log data to our new S3 bucket.
+3. After pasting our S3 ARN, I clicked Create flow log. By default a resource based policy is attached to the target bucket.
+4. ![image](https://github.com/user-attachments/assets/f4597fd6-7296-47e9-bc82-f3f5d4d53ce2)
+
+### 6. Anaylsing the logs
+Steps taken with relevant screen shots.
+1. With the steps completed so far, we can now generate some traffic via our local machine and review the logs in S3.
+2. From my local machine, I ran a ping test to the public ip address of our EC2 instance.
+3. 
 
 
 
