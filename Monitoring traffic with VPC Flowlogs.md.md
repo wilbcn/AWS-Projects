@@ -56,11 +56,27 @@ Steps taken with relevant screen shots.
 3. After pasting our S3 ARN, I clicked Create flow log. By default a resource based policy is attached to the target bucket.
 4. ![image](https://github.com/user-attachments/assets/f4597fd6-7296-47e9-bc82-f3f5d4d53ce2)
 
-### 6. Anaylsing the logs
+### 6. Setup an internet gateway in our VPC
+Steps taken with relevant screen shots.
+1. Navigated to VPC dashboard, and internet gateways in the left pane.
+2. Created new internet gateway called project-flowlogs-gateway.
+3. In internet gateways menu, I selected our new gateway, and hit actions, attach VPC, and selected our new VPC.
+4. Next I navigated to Route tables in the left pane, and selected the Route Table associated with our flow log VPC.
+5. On the Routes tab, hit Edit routes. We then enter 0.0.0.0/0 to cover all internet-bound traffic, and the target is our Internet gateway.
+6. ![image](https://github.com/user-attachments/assets/fbfbf66e-d67b-4731-9369-71e2d58b0d6d)
+
+### 7. Anaylsing the logs
 Steps taken with relevant screen shots.
 1. With the steps completed so far, we can now generate some traffic via our local machine and review the logs in S3.
 2. From my local machine, I ran a ping test to the public ip address of our EC2 instance.
-3. 
+3. <img width="457" alt="image" src="https://github.com/user-attachments/assets/762df016-467d-4b20-9e8d-0c2c6eefe8ef">
+4. We were successful with our ping test. I next headed over to our S3 bucket and waiting until we had logs to analyse.
+5. ![image](https://github.com/user-attachments/assets/20eda84b-9c69-499b-aa9d-5fb7eaed93c7)
+6. Upon analysing this log, I was able to see multiple ACCEPT and REJECT cases. Accept indicating traffic that matches our rules such as the ping from our local machine. The Reject indicates traffic that has been blocked by our NACLs or security group.
+7. <img width="681" alt="image" src="https://github.com/user-attachments/assets/0f6bc38c-f7f9-4081-99e5-570ea502bd2c">
+8. For security purposes my public IP was hidden.
+9. Reject cases are mostly harmless, such as random internet scanners. However, by contuining to monitor these logs, we could tighten security by adjusting NACLs to block specific IP ranges. 
+
 
 
 
