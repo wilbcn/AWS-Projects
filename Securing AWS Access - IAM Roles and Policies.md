@@ -1,4 +1,4 @@
-# AWS Project - Monitoring traffic with VPC Flowlogs
+# AWS Project - Securing AWS User Access with IAM Identity Center.
 
 ## Overview
 
