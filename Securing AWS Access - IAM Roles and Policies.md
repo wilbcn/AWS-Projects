@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project aims to implement secure access control for two different departments (Operations and HR), using AWS IAM. In this project we will demonstrate how to follow best security practices like the Principle of Least Privilege (PoLP), by assigning only the minimal and necessary permissions to users based on their department and job function. 
+This project aims to implement secure access control for two different departments (Operations and HR), using AWS IAM Identity Center. I choose AWS Identity Center to gain hands on experience with this service. This service offers benefits such as centralized management, scalability, and user experience for larger environments. It’s also a more modern approach, reflecting best practices for managing access in a scalable and secure AWS environment.
 
-Each department will have its own EC2 instance, and users will only have access to their retrospective resources without any permissions to access or modify resources outside of their department. This project was complete to gain hands-on experience using AWS services, with an emphasis on security by ensuring that resources are properly segrated and managed, helping to prevent unauthorised access to sensitive data. 
+In this project we will demonstrate how to follow best security practices like the Principle of Least Privilege (PoLP), by assigning only the minimal and necessary permissions to users based on their department and job function. 
 
-
+Each department will have its own EC2 instance, and users will only have access to their retrospective resources without any permissions to access or modify resources outside of their department. 
 
 # Project Scope
 1. Create a VPC with two EC2 instances, one for each department: Operations, HR.
@@ -50,7 +50,16 @@ Steps taken with relevant screen shots.
 5. In this part of the JSON we have defined the EC2 tag: "ec2:ResourceTag/Department": "HR"
 6. I repeated this step for the policy needed for Operations. The JSON looked the same except the Tag line was changed to "Operations".
 7. Now I created Permission Sets in AWS Identity Center.
-8. 
+8. These are custom permission sets, where I have attached our premade policies as customer managed policies. The session duration was kept at an hour, to demonstrate tighter access control.
+9. ![image](https://github.com/user-attachments/assets/caa32ae7-1fca-4371-a263-18b961256dab)
+10. Our two permission sets have now been created. Its time to assign them to our two User groups.
+11. Under Multi-Account permissions, AWS Accounts, I was able to assign our permission sets to our two groups.
+12. ![image](https://github.com/user-attachments/assets/e47e1f93-9fce-4a26-8c38-54ceff1ed90f)
+13. Time to login and test our permissions for each user.
+
+### 4. Testing access for HR user and Operations User
+Steps taken with relevant screen shots.
+1. 
 
 
 
