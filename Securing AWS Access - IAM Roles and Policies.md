@@ -33,9 +33,12 @@ Steps taken with relevant screen shots.
 7. I received an email for verification, and after logging in, was able to proceed to setup MFA.
 8. <img width="939" alt="image" src="https://github.com/user-attachments/assets/ed92fd8b-d763-4432-804b-312acaf7c627">
 9. I also updated my account to a new, strong and secure password.
-10. <img width="1400" alt="image" src="https://github.com/user-attachments/assets/ce497ce5-0adf-4b14-bd86-3d386ec5c1b2">]
+10. <img width="1400" alt="image" src="https://github.com/user-attachments/assets/ce497ce5-0adf-4b14-bd86-3d386ec5c1b2">
 11. Now I did the same with our Operations User.
 12. <img width="1536" alt="image" src="https://github.com/user-attachments/assets/53557a32-f216-486f-a695-05cb9abd6dd9">
+13. Now we have setup 2 users, each with MFA for better security.
+
+
 
 
 
