@@ -48,7 +48,9 @@ Steps taken with relevant screen shots.
 3. Using the JSON Policy editor, I set permissions for EC2 access for the HR department using its Tag.
 4. <img width="1536" alt="image" src="https://github.com/user-attachments/assets/0b9f9958-7e3f-422d-8beb-26ce7c84f70e">
 5. In this part of the JSON we have defined the EC2 tag: "ec2:ResourceTag/Department": "HR"
-6. I repeated this step for the policy needed for Operations.
+6. I repeated this step for the policy needed for Operations. The JSON looked the same except the Tag line was changed to "Operations".
+7. Now I created Permission Sets in AWS Identity Center.
+8. 
 
 
 
