@@ -15,7 +15,6 @@ The first step is to create a VPC, an isolated section of our network designed t
 2. Add the appropriate IPv4 CIDR Block. (something that is not in use so there is no overlap)
 <img width="1163" alt="image" src="https://github.com/user-attachments/assets/f41fea04-173f-462a-8b47-f48736accea5">
 
-
 ### 2. Create 2 subnets in different availability zones.
 Creating 2 subnets across different AZs ensures better fault tolerance and resilience for our resources.
 1. In the VPC dashboard, on the left panes go to Subnets, Create subnet.
@@ -65,7 +64,10 @@ Creating an S3 bucket in the same region as our VPC and EC2 instances.
 
 ### 7. Create a VPC endpoint for S3 access from the private instance
 Creating a VPC Endpoint that allows our private EC2 instance to securely connect to S3 over the AWS network, bypassing the need for an Internet Gateway or NAT.
-
+1. Navigate to the VPC dashboard, and endpoints, Create endpoint.
+2. Give it a name tag and select AWS Services.
+3. Search S3 and select the gateway service name e.g. com.amazonaws.eu-north-1.s3
+4. Select our custom VPC, and carefully select our private subnet via the route tables.
 
 ### 8. Create a new IAM role for S3 Access from EC2
 Attaching read only access to our EC2 instances for S3.
@@ -78,8 +80,24 @@ Attaching read only access to our EC2 instances for S3.
 
 ### 9. Test S3 Access from both instances
 Logging into our public ec2 from our local machine via ssh and peforming tests. Then ssh to private ec2 from the public instance and confirm permissions also.
-
-
+1. From my local machine, I navigated to where I had saved public EC2 key.
+2. It is required that private keys are not acessible by others, so I ran the appropriate chmod. chmod 600 PE-Public-EC2.pem
+3. After logging in as ec2-user, I ran a test with aws S3 ls. You can see our buckets including our projects S3.
+[ec2-user@ip-10-1-0-8 ~]$ aws s3 ls
+2024-07-29 10:42:36 mynew-firehose-bucket
+2024-09-12 10:46:06 p-flowlogs-bucket
+2024-09-17 11:09:43 projectendpoint-s3
+4. I then ran exit to quit our EC2 instance, and copied our private ec2 instance key into our public ec2 instance /home/ec2-user directory.
+5. After logging back into our public instance, I ran ssh into the private instance.
+6. I was also successful in running ls here.
+[ec2-user@ip-10-1-0-23 ~]$ aws s3 ls
+2024-07-29 10:42:36 mynew-firehose-bucket
+2024-09-12 10:46:06 p-flowlogs-bucket
+2024-09-17 11:09:43 projectendpoint-s3
+[ec2-user@ip-10-1-0-23 ~]$ exit
+logout
+Connection to 10.1.0.23 closed.
+7. So the private EC2 instance was accessible without internet access, by jumping from our public instance!
 
 
 
