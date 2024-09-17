@@ -42,16 +42,23 @@ The default local rule allows traffic within the VPC itself to communicate betwe
 
 ### 5. Deploy our EC2 Instances and their Security Groups
 Now I configured 2 EC2 instances, one in the public subnet, and the other in the private subnet. 
-
-
-<private ec2> no ssh traffic from ssh etc. Only inbound access from private address of public ec2.
-
-/32 *one ip only*
-
+1. In the EC2 dashboard, Launch a new instance
+2. Name it and use the Amazon Linux AMI.
+3. All settings were kept at the free tier.
+4. Generate a key pair and save locally.
+5. Expand the network settings, choosing our custom VPC, and for our first instance select the public subnet AZ1.
+6. Auto-assign public IP was enabled, as we are later going to connect to the public ip address. This first instance is public facing.
+7. Create a new security group, allowing ssh traffic from our local machine.
+8. Launch instance
+9. I then repeated these steps for the private EC2 instance, with some settings changed.
+10. We generated another key pair.
+11. We disabled auto-assign public IP, so we will only have a private ipv4 address.
+12. We created a security group that allows traffic only from the private ip address of the public instance.
+13. This private instance was put in our custom VPC, but in the private subnet AZ2, that has no internet gateway.
 
 ### 6. Create an S3 bucket
 Creating an S3 bucket in the same region as our VPC and EC2 instances.
-1. 
+
 
 ### 7. Create a VPC endpoint for S3 access from the private instance
 Creating a VPC Endpoint that allows our private EC2 instance to securely connect to S3 over the AWS network, bypassing the need for an Internet Gateway or NAT.
