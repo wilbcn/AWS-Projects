@@ -6,8 +6,7 @@ A similar project was completed via AWS Simulearn, as part of their skill builde
 ![IncreaseSecuritywithVPCEndpoints](https://github.com/user-attachments/assets/22feb6d4-7fe5-4e5c-a9e5-6cedfe3dfa45)
 
 ## Architecture explained
-
-<explain>
+This project demonstrates a secure AWS network architecture. We will setup and configure a VPC, public and private subnets, and an S3 VPC Endpoint. This project aims to showcase how we can reduce the attack surface by limiting access for the private EC2 instance, while maintaining some level of access through our public instance. 
 
 ### 1. Create a VPC.
 The first step is to create a VPC, an isolated section of our network designed to enhance the security of our services.
@@ -98,6 +97,13 @@ Logging into our public ec2 from our local machine via ssh and peforming tests. 
 logout
 Connection to 10.1.0.23 closed.
 7. So the private EC2 instance was accessible without internet access, by jumping from our public instance!
+
+### 10. Next steps.
+This was a fundemental project aimed at getting hands on experience with AWS services and deepening my understanding of how they work together. That being said, there are opportunities for future improvements with this project.
+1. Introduce NACLs to further enhance security, controlling the subnet traffic rules.
+2. Create a custom policy for our EC2 instances accessing S3.
+3. Add monitoring and logging through CloudWatch.
+4. Automate parts with Terraform.
 
 
 
