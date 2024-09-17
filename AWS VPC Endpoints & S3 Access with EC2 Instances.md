@@ -58,14 +58,23 @@ Now I configured 2 EC2 instances, one in the public subnet, and the other in the
 
 ### 6. Create an S3 bucket
 Creating an S3 bucket in the same region as our VPC and EC2 instances.
-
+1. Navigate to S3 dashboard and Create new bucket.
+2. Create a new general purpose bucket, blocking all public access enabled.
+3. All other settings were kept as default. Our S3 will be used later for testing access and not much else in this project.
+<img width="1287" alt="image" src="https://github.com/user-attachments/assets/ba264586-fc3e-4afb-b705-220e715fd5d2">
 
 ### 7. Create a VPC endpoint for S3 access from the private instance
 Creating a VPC Endpoint that allows our private EC2 instance to securely connect to S3 over the AWS network, bypassing the need for an Internet Gateway or NAT.
-1.
+
 
 ### 8. Create a new IAM role for S3 Access from EC2
 Attaching read only access to our EC2 instances for S3.
+1. Navigate to IAM, on the left pane click Roles, and Create role.
+2. Choose AWS Service, and Use case will be EC2.
+3. Add the policy AmazonS3ReadOnlyAccess
+4. Confirm the role name and description, and create the role.
+5. Go back to EC2, select an instance, and on the Actions button under security click Modify IAM Role. Attach our new role that allows S3 Read Access.
+<img width="1169" alt="image" src="https://github.com/user-attachments/assets/42c9583a-f115-4ff4-be3c-f1b44fdcf49e">
 
 ### 9. Test S3 Access from both instances
 Logging into our public ec2 from our local machine via ssh and peforming tests. Then ssh to private ec2 from the public instance and confirm permissions also.
