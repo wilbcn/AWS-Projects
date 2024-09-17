@@ -82,20 +82,20 @@ Logging into our public ec2 from our local machine via ssh and peforming tests. 
 1. From my local machine, I navigated to where I had saved public EC2 key.
 2. It is required that private keys are not acessible by others, so I ran the appropriate chmod. chmod 600 PE-Public-EC2.pem
 3. After logging in as ec2-user, I ran a test with aws S3 ls. You can see our buckets including our projects S3.
-[ec2-user@ip-10-1-0-8 ~]$ aws s3 ls
+`[ec2-user@ip-10-1-0-8 ~]$ aws s3 ls
 2024-07-29 10:42:36 mynew-firehose-bucket
 2024-09-12 10:46:06 p-flowlogs-bucket
-2024-09-17 11:09:43 projectendpoint-s3
+2024-09-17 11:09:43 projectendpoint-s3`
 4. I then ran exit to quit our EC2 instance, and copied our private ec2 instance key into our public ec2 instance /home/ec2-user directory.
 5. After logging back into our public instance, I ran ssh into the private instance.
 6. I was also successful in running ls here.
-[ec2-user@ip-10-1-0-23 ~]$ aws s3 ls
+`[ec2-user@ip-10-1-0-23 ~]$ aws s3 ls
 2024-07-29 10:42:36 mynew-firehose-bucket
 2024-09-12 10:46:06 p-flowlogs-bucket
 2024-09-17 11:09:43 projectendpoint-s3
 [ec2-user@ip-10-1-0-23 ~]$ exit
 logout
-Connection to 10.1.0.23 closed.
+Connection to 10.1.0.23 closed.`
 7. So the private EC2 instance was accessible without internet access, by jumping from our public instance!
 
 ### 10. Next steps.
